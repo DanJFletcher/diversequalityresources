@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Hey</h1>
-    <form name="contact" method="POST" netlify>
+    <form id="my-form" name="contact" method="POST" netlify>
       <p>
         <label>Your Name: <input type="text" name="name" /></label>
       </p>
@@ -21,6 +21,20 @@
 
 <script>
 
+import $ from 'jquery';
+
 export default {
+  methods: {
+    submit () {
+      $("#my-form").submit(function(e) {
+        e.preventDefault();
+
+        var $form = $(this);
+        $.post($form.attr("action"), $form.serialize()).then(function() {
+          alert("Thank you!");
+        });
+      });
+    }
+  }
 }
 </script>
