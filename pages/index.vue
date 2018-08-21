@@ -12,7 +12,7 @@
         <label>Message: <textarea name="message"></textarea></label>
       </p>
       <p>
-        <button type="submit">Send</button>
+        <button :click="submit">Send</button>
       </p>
     </form>
   </div>
@@ -21,19 +21,17 @@
 
 <script>
 
-import $ from 'jquery';
+import $ from 'jquery'
 
 export default {
   methods: {
-    submit () {
-      $("#my-form").submit(function(e) {
-        e.preventDefault();
+    submit (e) {
+      e.preventDefault()
 
-        var $form = $(this);
-        $.post($form.attr("action"), $form.serialize()).then(function() {
-          alert("Thank you!");
-        });
-      });
+      var $form = $(this)
+      $.post($form.attr('action'), $form.serialize()).then(function () {
+        alert('Thank you!')
+      })
     }
   }
 }
