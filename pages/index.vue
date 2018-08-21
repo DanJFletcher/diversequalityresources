@@ -12,7 +12,7 @@
         <label>Message: <textarea name="message"></textarea></label>
       </p>
       <p>
-        <button :click="submit">Send</button>
+        <button type="submit" @click="submit">Send</button>
       </p>
     </form>
   </div>
